@@ -1,0 +1,22 @@
+<h1> Event details </h1>
+<a [routerLink]="['']"> Back to list </a>
+
+<div *ngIf="event">
+    <div class="event-thumbnail">
+        <img height="100" width="200" [src]="event.image" />
+    </div>
+
+    <div class="event-info">
+        <h3> {{ event.event }}&nbsp;</h3>
+        <p> {{ event.info }} </p>
+
+        <div *ngIf="event.specs">
+            <h4> Additional Information </h4>
+            <ul>
+                <li *ngFor="let spec of event.specs"> {{ spec&nbsp;}} </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Place the button where you like most in the template -->
+    <button (click)="deleteEvent()"> Delete </button>
+</div>
